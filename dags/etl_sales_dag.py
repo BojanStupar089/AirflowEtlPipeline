@@ -18,7 +18,7 @@ def load():
 with DAG(
     dag_id="etl_sales_dag",
     start_date=datetime(2025, 11, 8),
-    schedule_interval="@daily",
+    schedule="@daily",
     catchup=False,
     description="Simple ETL example DAG",
 ) as dag:
@@ -39,3 +39,4 @@ with DAG(
     )
 
     extract_task >> transform_task >> load_task
+
